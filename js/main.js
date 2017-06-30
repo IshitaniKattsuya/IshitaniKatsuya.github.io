@@ -598,6 +598,11 @@ function turnRight(){
 function moveUp(x,y){
     positionX = x;
     positionY = y - Constants.size;
+    //マップ外（上側）へ出る場合
+    if(positionY < 0){
+        alert("開始アイコンが画面外へ出てしまいます。やり直してください。");
+        javascript_die;
+    }
     $('#utan').animate(
         {'top': positionY + 'px'},
         {duration: MoveDuration.forward}
@@ -606,6 +611,11 @@ function moveUp(x,y){
 function moveDown(x,y){
     positionX = x;
     positionY = y + Constants.size;
+    //マップ外（下側）へ出る場合
+    if(positionY > 500){
+        alert("開始アイコンが画面外へ出てしまいます。やり直してください。");
+        javascript_die;
+    }
     $('#utan').animate(
         {'top': positionY + 'px'},
         {duration: MoveDuration.forward}
@@ -614,6 +624,11 @@ function moveDown(x,y){
 function moveRight(x,y){
     positionX = x + Constants.size;
     positionY = y;
+    //マップ外（右側）へ出る場合
+    if(positionX > 500){
+        alert("開始アイコンが画面外へ出てしまいます。やり直してください。");
+        javascript_die;
+    }
     $('#utan').animate(
         {'left': positionX + 'px'},
         {duration: MoveDuration.forward}
@@ -622,6 +637,11 @@ function moveRight(x,y){
 function moveLeft(x,y){
     positionX = x - Constants.size;
     positionY = y;
+    //マップ外（左側）へ出る場合
+    if(positionX < 0){
+        alert("開始アイコンが画面外へ出てしまいます。やり直してください。");
+        javascript_die;
+    }
     $('#utan').animate(
         {'left': positionX + 'px'},
         {duration: MoveDuration.forward}
